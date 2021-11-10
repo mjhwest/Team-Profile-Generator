@@ -95,7 +95,7 @@ describe("Engineer", () => {
 
         //getRole here 
         describe("Can get role from getRole", () => {
-            it("Should return the role an 'engineer' ", () => {
+            it("Should return the role as 'engineer' ", () => {
                 const testValue = "Engineer";
                 const engineer = new Engineer("James", 1, "james@email.com", "testGitUserName");
                 expect(engineer.getRole()).toBe(testValue)
