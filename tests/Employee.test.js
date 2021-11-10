@@ -116,7 +116,7 @@ describe("Employee", () => {
         describe("Can get id from getId", () => {
             it("Should return the employees id", () => {
                 const testValue = 1;
-                const employee = new Employee(testValue);
+                const employee = new Employee("Name", testValue);
                 expect(employee.getId()).toBe(testValue)
             });
         })
@@ -124,11 +124,12 @@ describe("Employee", () => {
         describe("Can get email from getEmail", () => {
             it("Should reutrn the employees email", () => {
                 const testValue = "test@email.com";
-                const employee = new Employee(testValue);
+                const employee = new Employee("Name", 1, testValue);
                 expect(employee.getEmail()).toBe(testValue)
             });
         })
 
+        //getRole
         describe("Can get role from getRole", () => {
             it("Should return role as 'employee' ", () => {
                 const testValue = "Employee";

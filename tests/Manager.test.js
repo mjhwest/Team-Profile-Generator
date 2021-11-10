@@ -2,8 +2,8 @@ const Manager = require('../lib/manager');
 
 describe("Manager", () => {
     describe("Initialization", () => {
-        it("Should it should create an object with a name, id, email and officeNumber", () => {
-            const manger = new Manager("Michael", 1, "michael@email.com", 10);
+        it("Should create an object with a name, id, email and officeNumber", () => {
+            const manager = new Manager("Michael", 1, "michael@email.com", 10);
 
             //confirm the new objects has the correct properties
             expect(manager.name).toEqual("Michael");
@@ -20,7 +20,7 @@ describe("Manager", () => {
             expect(cb).toThrow();
         });
 
-        //same erroers for NAME, ID, EMAIL as employee.test.js
+        //same errors for NAME, ID, EMAIL as employee.test.js
         it("should throw an error if name is not a string", () => {
             //define the error message that is expected to be thrown
             const cb = () => new Manager(1, 2);
@@ -86,7 +86,7 @@ describe("Manager", () => {
             it("Should return the managers officeNumber", () => {
                 const officeNumberValue = 10
                 const manager = new Manager("Jim", 1, "jim@email.com", officeNumberValue);
-                expect(employee.officeNumber).toBe(officeNumberValue)
+                expect(manager.officeNumber).toBe(officeNumberValue)
             })
         })
 
@@ -94,17 +94,17 @@ describe("Manager", () => {
         describe("Can get office number from getOfficeNumber", () => {
             it("Should return the manager office number", () => {
                 const testValue = 1;
-                const manager = new Manager(testValue);
-                expect(manger.getOfficeNumber()).toBe(testValue)
+                const manager = new Manager("Name", 1, "test@email.com", testValue);
+                expect(manager.getOfficeNumber()).toBe(testValue)
             })
         })
 
-        //getRole
+        //getRole here
         describe("Can get role from getRole", () => {
             it("Should return the role as 'manager' ", () => {
                 const testValue = "Manager";
                 const manager = new Manager("James", 1, "james@email.com", 20);
-                expect(employee.getRole()).toBe(testValue);
+                expect(manager.getRole()).toBe(testValue);
             })
         })
     })
