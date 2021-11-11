@@ -4,11 +4,11 @@ const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+// const OUTPUT_DIR = path.resolve(__dirname, "output");
+// const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./lib/htmlRender");
-const { get } = require("http");
+// const render = require("./lib/htmlRender");
+// const { get } = require("http");
 
 const team = []
 
@@ -55,7 +55,7 @@ async function teamProfileGenerator() {
             type: "list",
             message: "Select Employee Description",
             name: "role",
-            choice: [
+            choices: [
                 "Manager",
                 "Engineer",
                 "Intern",
@@ -74,6 +74,7 @@ async function teamProfileGenerator() {
         }).catch(error => {
             return error;
         });
+
 
     };
 
@@ -102,7 +103,7 @@ async function teamProfileGenerator() {
             },
         ]).then(data => {
             const managerInfo = new Manager(data.name, data.id, data.email, data.office);
-            this.team.push(managerInfo);
+            team.push(managerInfo);
             moreMembers();
 
         }).catch(error => {
@@ -135,7 +136,7 @@ async function teamProfileGenerator() {
             }
         ]).then(data => {
             const engineerInfo = new Engineer(data.name, data.id, data.email, data.github);
-            this.team.push(engineerInfo);
+            team.push(engineerInfo);
             moreMembers();
 
         }).catch(error => {
@@ -168,7 +169,7 @@ async function teamProfileGenerator() {
             }
         ]).then(data => {
             const internInfo = new Intern(data.name, data.id, data.email, data.school);
-            this.team.push(internInfo);
+            team.push(internInfo);
             moreMembers();
 
         }).catch(error => {
