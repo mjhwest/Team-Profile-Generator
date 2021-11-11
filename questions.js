@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const path = reuqire("path");
+const path = require("path");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
@@ -7,7 +7,7 @@ const Intern = require("./lib/intern");
 const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-const render = require("./lib/htmlRenderer");
+const render = require("./lib/htmlRender");
 const { get } = require("http");
 
 const team = []
