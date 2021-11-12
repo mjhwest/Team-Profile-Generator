@@ -1,14 +1,12 @@
 const inquirer = require("inquirer");
-const path = require("path");
+const fs = require('fs')
+const htmlMaker = require("./lib/htmlMaker");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
+const render = require("./lib/htmlMaker");
 
-// const OUTPUT_DIR = path.resolve(__dirname, "output");
-// const outputPath = path.join(OUTPUT_DIR, "team.html");
 
-// const render = require("./lib/htmlRender");
-// const { get } = require("http");
 
 const team = []
 
@@ -35,18 +33,7 @@ async function teamProfileGenerator() {
             } else if (data.role === "Intern") {
                 intern();
             }
-
         })
-
-        // (async function selectRole(data) {
-        //     if (data.role === "Manager") {
-        //         manager();
-        //     } else if (data.role === "Engineer") {
-        //         engineer();
-        //     } else if (data.role === "Intern") {
-        //         intern();
-        //     }
-        // });
     };
 
     //function to see if there are more employees
@@ -101,8 +88,8 @@ async function teamProfileGenerator() {
                 name: "office",
                 message: "what is the managers office number?"
             },
-        ]).then(data => {
-            const managerInfo = new Manager(data.name, data.id, data.email, data.office);
+        ]).then(managerData => {
+            const managerInfo = new Manager(managerData.name, managerData.id, managerData.email, managerData.office);
             team.push(managerInfo);
             moreMembers();
 
@@ -134,8 +121,8 @@ async function teamProfileGenerator() {
                 name: "github",
                 message: "what is the enginners github username?"
             }
-        ]).then(data => {
-            const engineerInfo = new Engineer(data.name, data.id, data.email, data.github);
+        ]).then(engineerData => {
+            const engineerInfo = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github);
             team.push(engineerInfo);
             moreMembers();
 
@@ -167,8 +154,8 @@ async function teamProfileGenerator() {
                 name: "school",
                 message: "what is the interns school?"
             }
-        ]).then(data => {
-            const internInfo = new Intern(data.name, data.id, data.email, data.school);
+        ]).then(internData => {
+            const internInfo = new Intern(internData.name, internData.id, internData.email, internData.school);
             team.push(internInfo);
             moreMembers();
 
@@ -184,23 +171,28 @@ async function teamProfileGenerator() {
     startQuestions();
 
 
-    //Get object and wtite to HTML
 
-    function getHTML() {
+
+    // const teamProfileGenerator = () => {
+    //     whichMember()
+    //         .then((answers) => fs.wrtieFileSync('team.html', htmlRender(answers)))
+    //         .then(() => console.log("Nice job, you successfully wrote the team.html"))
+    //         .catch((err) => console.error(err))
+
+    // }
+
+    // Get object and write to HTML
+    async function getHTML() {
+        console.log(team)
         const myHTML = render(team);
 
-        fs.writeFileSync(outputPath, myHTML, function(err) {
+        fs.writeFileSync('./team.html', myHTML, function(err) {
             if (err) return err;
-
             console.log("Success! You made a team.html file!")
         });
     };
 
-
-
 }
 
-
+//calls create team profile function
 teamProfileGenerator();
-
-module.exports
