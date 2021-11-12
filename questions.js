@@ -186,7 +186,8 @@ async function teamProfileGenerator() {
         console.log(team)
         const myHTML = render(team);
 
-        fs.writeFileSync('./team.html', myHTML, function(err) {
+
+        fs.writeFileSync('./dist/team.html', myHTML, function(err) {
             if (err) return err;
             console.log("Success! You made a team.html file!")
         });
