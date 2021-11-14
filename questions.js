@@ -1,6 +1,6 @@
 const inquirer = require("inquirer");
 const fs = require('fs')
-const htmlMaker = require("./lib/htmlMaker");
+    // const htmlMaker = require("./lib/htmlMaker");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
@@ -71,7 +71,7 @@ async function teamProfileGenerator() {
         inquirer.prompt([{
                 type: "input",
                 name: "name",
-                message: "what is the manager name?"
+                message: "What is the manager name?"
             },
             {
                 type: "number",
@@ -86,7 +86,7 @@ async function teamProfileGenerator() {
             {
                 tyle: "number",
                 name: "office",
-                message: "what is the managers office number?"
+                message: "What is the managers office number?"
             },
         ]).then(managerData => {
             const managerInfo = new Manager(managerData.name, managerData.id, managerData.email, managerData.office);
@@ -104,22 +104,22 @@ async function teamProfileGenerator() {
         inquirer.prompt([{
                 type: "input",
                 name: "name",
-                message: "what is the engineers name?"
+                message: "What is the engineers name?"
             },
             {
                 type: "number",
                 name: "id",
-                message: "what is the engineers ID number?"
+                message: "What is the engineers ID number?"
             },
             {
                 type: "input",
                 name: "email",
-                message: "what is the enginners email?"
+                message: "What is the enginners email?"
             },
             {
                 type: "input",
                 name: "github",
-                message: "what is the enginners github username?"
+                message: "What is the enginners github username?"
             }
         ]).then(engineerData => {
             const engineerInfo = new Engineer(engineerData.name, engineerData.id, engineerData.email, engineerData.github);
@@ -137,22 +137,22 @@ async function teamProfileGenerator() {
         inquirer.prompt([{
                 type: "input",
                 name: "name",
-                message: "what is the interns name?"
+                message: "What is the interns name?"
             },
             {
                 type: "number",
                 name: "id",
-                message: "what is the interns ID number?"
+                message: "What is the interns ID number?"
             },
             {
                 type: "input",
                 name: "email",
-                message: "what is the interns email?"
+                message: "What is the interns email?"
             },
             {
                 type: "input",
                 name: "school",
-                message: "what is the interns school?"
+                message: "What is the interns school?"
             }
         ]).then(internData => {
             const internInfo = new Intern(internData.name, internData.id, internData.email, internData.school);
@@ -170,16 +170,6 @@ async function teamProfileGenerator() {
     };
     startQuestions();
 
-
-
-
-    // const teamProfileGenerator = () => {
-    //     whichMember()
-    //         .then((answers) => fs.wrtieFileSync('team.html', htmlRender(answers)))
-    //         .then(() => console.log("Nice job, you successfully wrote the team.html"))
-    //         .catch((err) => console.error(err))
-
-    // }
 
     // Get object and write to HTML
     async function getHTML() {
