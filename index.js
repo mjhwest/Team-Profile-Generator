@@ -185,5 +185,5 @@ async function teamProfileGenerator() {
 
 }
 
-//calls create team profile function
+//calls create team profile function 
 teamProfileGenerator();
