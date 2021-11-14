@@ -14,5 +14,21 @@
 }
 
 .card-body {
-    background-color: cadetblue;
+    background-color: #0f0e0f57
+}
+
+.manager {
+    background-color: #E62626ed;
+}
+
+.engineer {
+    background-color: #9C5CE6;
+}
+
+.intern {
+    background-color: #50A8E6
+}
+
+.employee-card {
+    box-shadow: 8px 7px 8px 3px black;
 }
