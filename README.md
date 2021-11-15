@@ -1,5 +1,7 @@
 # Team-Profile-Generator
 
+![License](https://img.shields.io/badge/license-MIT-blue)
+
 ![team-gen](assets/gif/team-gen.gif)
 
 ## Description
@@ -64,3 +66,4 @@ As previously mentioned the user can test the functionality of the application. 
 If you would like to contribute to this project please contact me via email at mjhwest89@gmail.com
 
 ## License
+This project is released under the [MIT LICENSE](https://github.com/mjhwest/Team-Profile-Generator/blob/main/LICENSE)
